@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login — Sitter Squad</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner small">
+      <div class="banner-text">
+        <h1>Welcome Back</h1>
+        <p class="tagline">Login to your Sitter Squad account</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/browse-sitters.html" class="nav-btn">Browse Sitters</a>
+        <a href="/how-it-works.html" class="nav-btn">How It Works</a>
+        <a href="/pricing.html" class="nav-btn">Pricing</a>
+        <div class="nav-auth">
+          <a href="/login.html" class="nav-btn active">Login</a>
+          <a href="/signup.html" class="nav-btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="auth-container">
+      <div class="auth-card">
+        <h2>Login to Your Account</h2>
+        
+        <form id="loginForm" class="auth-form">
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+          
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+          </div>
+          
+          <div class="field checkbox-field">
+            <label>
+              <input type="checkbox" name="rememberMe" id="rememberMe">
+              Remember me for 30 days
+            </label>
+          </div>
+          
+          <div class="auth-actions">
+            <button type="submit" class="btn-primary btn-large full-width">Login</button>
+          </div>
+        </form>
+        
+        <div class="auth-links">
+          <a href="/forgot-password.html">Forgot your password?</a>
+        </div>
+        
+        <div class="auth-divider">
+          <span>Don't have an account?</span>
+        </div>
+        
+        <div class="auth-switch">
+          <a href="/signup.html" class="btn-ghost btn-large full-width">Create Account</a>
+        </div>
+      </div>
+      
+      <div class="auth-help">
+        <h3>Need Help?</h3>
+        <ul>
+          <li><a href="/faq.html">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Sitter Squad • Trusted Childcare Platform</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const email = formData.get('email');
+      const password = formData.get('password');
+      const rememberMe = formData.get('rememberMe') === 'on';
+      
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Logging in...';
+      submitBtn.disabled = true;
+      
+      try {
+        // Make API call to login endpoint
+        const response = await fetch('/.netlify/functions/auth', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            action: 'login',
+            email,
+            password,
+            rememberMe
+          }),
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          // Store auth token
+          if (rememberMe) {
+            localStorage.setItem('authToken', result.token);
+          } else {
+            sessionStorage.setItem('authToken', result.token);
+          }
+          localStorage.setItem('user', JSON.stringify(result.user));
+          
+          // Redirect to dashboard or intended page
+          const urlParams = new URLSearchParams(window.location.search);
+          const returnTo = urlParams.get('returnTo') || '/dashboard.html';
+          window.location.href = returnTo;
+        } else {
+          alert(result.message || 'Login failed. Please check your credentials.');
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        alert('Login failed. Please try again.');
+      } finally {
+        // Reset button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Management — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+      <div class="banner-text">
+        <h1><a href="/" style="color:white;text-decoration:none">Cub Hub Herts</a></h1>
+        <p class="tagline">Blog Management</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">← Back to Home</a>
+        <a href="/blog.html" class="nav-btn">View Blog</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="form-card">
+      <h2 id="formTitle">Write New Blog Article</h2>
+      <form id="blogForm" class="two-col">
+        <div class="field">
+          <label for="title">Article Title *</label>
+          <input id="title" name="title" required placeholder="Enter article title..." />
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="General">General</option>
+            <option value="Tips & Advice">Tips & Advice</option>
+            <option value="News">News</option>
+            <option value="Resources">Resources</option>
+            <option value="Community">Community</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="author">Author</label>
+          <input id="author" name="author" placeholder="Author name" value="Admin" />
+        </div>
+        <div class="field">
+          <label for="featuredImage">Featured Image</label>
+          <input id="featuredImageFile" name="featuredImageFile" type="file" accept="image/*" />
+          <small>Upload an image or enter URL below</small>
+        </div>
+        <div class="field">
+          <label for="featuredImage">Or Featured Image URL</label>
+          <input id="featuredImage" name="featuredImage" type="url" placeholder="https://example.com/image.jpg" />
+        </div>
+        <div class="field wide">
+          <label for="excerpt">Excerpt/Summary *</label>
+          <textarea id="excerpt" name="excerpt" required placeholder="Brief summary of the article..." rows="3"></textarea>
+        </div>
+        <div class="field wide">
+          <label for="content">Article Content *</label>
+          <textarea id="content" name="content" required placeholder="Write your full article content here..." rows="15"></textarea>
+        </div>
+        <div class="field">
+          <label for="tags">Tags (comma-separated)</label>
+          <input id="tags" name="tags" placeholder="parenting, childcare, tips" />
+        </div>
+        <div class="field">
+          <label for="publishDate">Publish Date</label>
+          <input id="publishDate" name="publishDate" type="datetime-local" />
+        </div>
+        <div class="field wide buttons">
+          <button type="submit" class="btn-primary" id="submitBtn">Publish Article</button>
+          <button type="button" class="btn-ghost" id="previewBtn">Preview</button>
+          <button type="button" class="btn-ghost" id="cancelBtn">Cancel</button>
+        </div>
+        <div class="field wide">
+          <div id="submitStatus"></div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Preview Section -->
+    <section id="previewSection" class="form-card hidden">
+      <h2>Article Preview</h2>
+      <article id="previewContent" class="blog-post-preview">
+        <!-- Preview content will be inserted here -->
+      </article>
+    </section>
+
+    <!-- Existing Articles Management -->
+    <section class="form-card">
+      <h2>Manage Existing Articles</h2>
+      <div class="search-form">
+        <input id="searchArticles" placeholder="Search articles..." />
+        <select id="filterCategory">
+          <option value="">All Categories</option>
+          <option value="General">General</option>
+          <option value="Tips & Advice">Tips & Advice</option>
+          <option value="News">News</option>
+          <option value="Resources">Resources</option>
+          <option value="Community">Community</option>
+        </select>
+      </div>
+      <div id="articlesGrid" class="cards-grid"></div>
+      <div id="noArticles" class="empty hidden">
+        <p>No articles found. Create your first blog post above!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Blog Management</p>
+    </div>
+  </footer>
+
+  <script src="/blog-manager.js" type="module"></script>
+</body>
+</html>

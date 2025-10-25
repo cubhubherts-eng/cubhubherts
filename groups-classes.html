@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Groups & Classes — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+      <div class="banner-text">
+        <h1><a href="/" style="color:white;text-decoration:none">Cub Hub Herts</a></h1>
+        <p class="tagline">Groups and classes in Hertfordshire</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/providers.html" class="nav-btn">Providers</a>
+        <a href="/jobs.html" class="nav-btn">Jobs</a>
+        <a href="/events.html" class="nav-btn">Events</a>
+        <a href="/agencies.html" class="nav-btn">Agencies</a>
+        <a href="/blog.html" class="nav-btn">Blog</a>
+        <a href="/groups-classes.html" class="nav-btn">Groups & Classes</a>
+        <a href="/add-listing.html" class="nav-btn">Add Your Listing</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="search-card">
+      <h2>Coming Soon</h2>
+      <p>We're working on building our directory of groups and classes for families in Hertfordshire. This section will include:</p>
+      <ul>
+        <li>Parent and baby groups</li>
+        <li>Toddler classes</li>
+        <li>Music and movement</li>
+        <li>Swimming lessons</li>
+        <li>Sports clubs</li>
+        <li>Educational classes</li>
+        <li>Support groups</li>
+      </ul>
+      <p>Check back soon or <a href="/add-listing.html">add your group or class</a> to our listings.</p>
+      
+      <div class="back-link">
+        <a href="/" class="btn-primary">← Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

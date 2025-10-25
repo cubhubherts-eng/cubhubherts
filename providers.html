@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Providers — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+      <div class="banner-text">
+        <h1><a href="/" style="color:white;text-decoration:none">Cub Hub Herts</a></h1>
+        <p class="tagline">Childcare providers in Hertfordshire</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/providers.html" class="nav-btn">Providers</a>
+        <a href="/jobs.html" class="nav-btn">Jobs</a>
+        <a href="/events.html" class="nav-btn">Events</a>
+        <a href="/agencies.html" class="nav-btn">Agencies</a>
+        <a href="/blog.html" class="nav-btn">Blog</a>
+        <a href="/groups-classes.html" class="nav-btn">Groups & Classes</a>
+        <a href="/add-listing.html" class="nav-btn">Add Your Listing</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="search-card">
+      <h2>Find Childcare Providers</h2>
+      <form id="searchForm" class="search-form">
+        <div class="row">
+          <div class="field">
+            <label for="subcategory">Provider Type</label>
+            <select id="subcategory" name="subcategory">
+              <option value="">Any</option>
+              <option>Nanny</option>
+              <option>Babysitter</option>
+              <option>Childminder</option>
+              <option>Au Pair</option>
+              <option>Maternity Nurse</option>
+              <option>Night Nanny</option>
+              <option>Doula</option>
+              <option>Tutor</option>
+              <option>Nursery</option>
+              <option>Pre-school</option>
+              <option>Holiday & Out of school club</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="town">Town</label>
+            <input id="town" name="town" placeholder="Start typing a Hertfordshire town…" list="towns" />
+          </div>
+          <div class="field">
+            <label for="q">Keyword</label>
+            <input id="q" name="q" placeholder="role, specialism, tag..." />
+          </div>
+        </div>
+        <datalist id="towns">
+          <option value="Abbots Langley"></option><option value="Ashwell"></option><option value="Baldock"></option><option value="Berkhamsted"></option><option value="Bishop's Stortford"></option><option value="Borehamwood"></option><option value="Broxbourne"></option><option value="Buntingford"></option><option value="Bushey"></option><option value="Cheshunt"></option><option value="Chorleywood"></option><option value="Croxley Green"></option><option value="Cuffley"></option><option value="Elstree"></option><option value="Essendon"></option><option value="Flamstead"></option><option value="Great Amwell"></option><option value="Great Offley"></option><option value="Harpenden"></option><option value="Hatfield"></option><option value="Hemel Hempstead"></option><option value="Hertford"></option><option value="Hitchin"></option><option value="Hoddesdon"></option><option value="Knebworth"></option><option value="Kimpton"></option><option value="Kings Langley"></option><option value="Letchworth Garden City"></option><option value="Little Hadham"></option><option value="London Colney"></option><option value="Maple Cross"></option><option value="Markyate"></option><option value="Much Hadham"></option><option value="Northwood (Herts)"></option><option value="Potters Bar"></option><option value="Radlett"></option><option value="Redbourn"></option><option value="Rickmansworth"></option><option value="Royston"></option><option value="Sandridge"></option><option value="Sawbridgeworth"></option><option value="Shenley"></option><option value="South Oxhey"></option><option value="St Albans"></option><option value="Stanstead Abbotts"></option><option value="Stevenage"></option><option value="Tewin"></option><option value="Tring"></option><option value="Ware"></option><option value="Waltham Cross"></option><option value="Watford"></option><option value="Watton-at-Stone"></option><option value="Welham Green"></option><option value="Welwyn"></option><option value="Welwyn Garden City"></option><option value="Wheathampstead"></option><option value="Goffs Oak"></option><option value="Brookmans Park"></option><option value="Bayford"></option><option value="Hunsdon"></option><option value="Puckeridge"></option><option value="Standon"></option><option value="Digswell"></option><option value="Codicote"></option><option value="Cranborne"></option><option value="Waltham Abbey (Herts)"></option><option value="Little Gaddesden"></option><option value="Napsbury"></option><option value="How Wood"></option><option value="Park Street"></option><option value="Bricket Wood"></option>
+        </datalist>
+        <div class="row spacing-top" id="flagFilters">
+          <div class="field">
+            <label><input type="checkbox" id="f_dbs"> DBS</label>
+            <label><input type="checkbox" id="f_firstaid"> First Aid</label>
+            <label><input type="checkbox" id="f_ofsted"> Ofsted Registered</label>
+            <label><input type="checkbox" id="f_sen"> SEN</label>
+          </div>
+        </div>
+        <div class="row buttons">
+          <button type="submit" class="btn-primary">Go</button>
+          <button type="button" id="clearBtn" class="btn-ghost">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-card">
+      <div class="results-header">
+        <h2>Childcare Providers</h2>
+        <span id="resultCount" class="muted"></span>
+      </div>
+      <div id="listingsGrid" class="cards-grid"></div>
+      <div id="emptyState" class="empty hidden">
+        <p>No providers found. Try changing your filters or <a href="/add-listing.html">add a new listing</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    // Load only Childcare Providers category
+    const API_LIST = '/.netlify/functions/get_listings';
+    const $ = (sel) => document.querySelector(sel);
+    
+    const listingsGrid = $('#listingsGrid');
+    const emptyState = $('#emptyState');
+    const resultCount = $('#resultCount');
+    const yearEl = $('#year'); 
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    function cardTemplate(item){
+      const img = item.featuredImageUrl ? `<img src="${item.featuredImageUrl}" alt="">` : `<img alt="" />`;
+      const tags = (item.tags || []).slice(0,8).map(t => `<span class="badge">${t}</span>`).join('');
+      const website = item.website ? `<a href="${item.website}" target="_blank" rel="noopener">Visit website</a>` : '';
+      const meta = [item.subcategory, item.town].filter(Boolean).join(' • ');
+      return `<article class="card">
+        ${img}
+        <div class="pad">
+          <h3>${item.title || 'Untitled'}</h3>
+          <div class="meta">${meta}</div>
+          <p>${(item.about || '').slice(0,160)}${item.about && item.about.length>160?'…':''}</p>
+          <div class="badges">${tags}</div>
+          <div class="meta">${website}</div>
+        </div>
+      </article>`;
+    }
+
+    async function loadListings(params = {}){
+      const url = new URL(API_LIST, window.location.origin);
+      params.category = 'Childcare Providers';
+      Object.entries(params).forEach(([k,v]) => { if (v) url.searchParams.set(k, v) });
+      const res = await fetch(url, { headers: { 'Accept':'application/json' } });
+      if (!res.ok){ console.error('Failed to load', await res.text()); return }
+      const data = await res.json();
+      renderListings(data.items || []);
+    }
+
+    function renderListings(items){
+      resultCount.textContent = `${items.length} result${items.length===1?'':'s'}`;
+      if (!items.length){
+        listingsGrid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+      emptyState.classList.add('hidden');
+      listingsGrid.innerHTML = items.map(cardTemplate).join('');
+    }
+
+    $('#searchForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const subcategory = $('#subcategory').value.trim();
+      const town = $('#town').value.trim();
+      const q = $('#q').value.trim();
+      const dbs = $('#f_dbs').checked ? '1' : '';
+      const firstaid = $('#f_firstaid').checked ? '1' : '';
+      const ofsted = $('#f_ofsted').checked ? '1' : '';
+      const sen = $('#f_sen').checked ? '1' : '';
+      loadListings({ subcategory, town, q, dbs, firstaid, ofsted, sen });
+    });
+
+    $('#clearBtn').addEventListener('click', ()=>{
+      $('#subcategory').value = '';
+      $('#town').value = '';
+      $('#q').value = '';
+      $('#f_dbs').checked = false;
+      $('#f_firstaid').checked = false;
+      $('#f_ofsted').checked = false;
+      $('#f_sen').checked = false;
+      loadListings({});
+    });
+
+    // Initial load
+    loadListings({});
+  </script>
+</body>
+</html>

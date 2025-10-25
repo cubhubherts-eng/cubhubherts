@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Sitter Squad</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner small">
+      <div class="banner-text">
+        <h1 id="dashboardTitle">My Dashboard</h1>
+        <p class="tagline" id="dashboardSubtitle">Manage your account and activities</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/browse-sitters.html" class="nav-btn">Browse Sitters</a>
+        <a href="/how-it-works.html" class="nav-btn">How It Works</a>
+        <a href="/pricing.html" class="nav-btn">Pricing</a>
+        <div class="nav-auth">
+          <div class="user-menu">
+            <span id="userName">Loading...</span>
+            <a href="/dashboard.html" class="nav-btn active">Dashboard</a>
+            <a href="#" class="nav-btn" id="logoutBtn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="dashboard-container">
+      <!-- Dashboard Navigation -->
+      <div class="dashboard-nav">
+        <h3>Quick Actions</h3>
+        <div class="dashboard-nav-items">
+          <a href="/browse-sitters.html" class="nav-item" id="browseSittersNav" style="display:none;">
+            <span class="icon">👥</span>
+            <span>Find Sitters</span>
+          </a>
+          <button class="nav-item" id="editProfileBtn">
+            <span class="icon">✏️</span>
+            <span>Edit Profile</span>
+          </button>
+        </div>
+        
+        <h3>Dashboard Sections</h3>
+        <div class="dashboard-nav-items">
+          <button class="nav-item active" data-section="overview">
+            <span class="icon">📊</span>
+            <span>Overview</span>
+          </button>
+          <button class="nav-item" data-section="jobs" id="jobsNavBtn">
+            <span class="icon">💼</span>
+            <span id="jobsNavLabel">My Jobs</span>
+          </button>
+          <button class="nav-item" data-section="bookings">
+            <span class="icon">📅</span>
+            <span>Bookings</span>
+          </button>
+          <button class="nav-item" data-section="messages">
+            <span class="icon">💬</span>
+            <span>Messages</span>
+            <span class="notification-badge" id="messagesBadge" style="display:none;">3</span>
+          </button>
+          <button class="nav-item" data-section="reviews">
+            <span class="icon">⭐</span>
+            <span>Reviews</span>
+          </button>
+          <button class="nav-item" data-section="payments" id="paymentsNavBtn">
+            <span class="icon">💳</span>
+            <span id="paymentsNavLabel">Payments</span>
+          </button>
+          <button class="nav-item" data-section="settings">
+            <span class="icon">⚙️</span>
+            <span>Settings</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Overview Section -->
+        <div class="dashboard-section active" id="overview">
+          <div class="welcome-card">
+            <h2>Welcome back, <span id="welcomeName">User</span>!</h2>
+            <p id="welcomeMessage">Here's what's happening with your account.</p>
+          </div>
+
+          <div class="stats-grid" id="statsGrid">
+            <!-- Stats will be populated by JavaScript -->
+          </div>
+
+          <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div id="recentActivityList" class="activity-list">
+              <!-- Recent activity will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Jobs Section -->
+        <div class="dashboard-section" id="jobs">
+          <div class="section-header">
+            <h2 id="jobsSectionTitle">My Jobs</h2>
+            <button class="btn-primary" id="newJobBtn" style="display:none;">Post New Job</button>
+          </div>
+          
+          <div class="jobs-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <button class="filter-btn" data-filter="cancelled">Cancelled</button>
+          </div>
+
+          <div id="jobsList" class="jobs-list">
+            <!-- Jobs will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Bookings Section -->
+        <div class="dashboard-section" id="bookings">
+          <div class="section-header">
+            <h2>My Bookings</h2>
+            <div class="view-toggle">
+              <button class="toggle-btn active" data-view="list">List</button>
+              <button class="toggle-btn" data-view="calendar">Calendar</button>
+            </div>
+          </div>
+
+          <div id="bookingsList" class="bookings-list">
+            <!-- Bookings will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Messages Section -->
+        <div class="dashboard-section" id="messages">
+          <div class="section-header">
+            <h2>Messages</h2>
+            <button class="btn-ghost">Mark All Read</button>
+          </div>
+
+          <div class="messages-container">
+            <div class="conversations-list">
+              <h3>Conversations</h3>
+              <div id="conversationsList">
+                <!-- Conversations will be populated by JavaScript -->
+              </div>
+            </div>
+            
+            <div class="message-thread">
+              <div class="no-conversation">
+                <p>Select a conversation to view messages</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="dashboard-section" id="reviews">
+          <div class="section-header">
+            <h2>Reviews & Ratings</h2>
+            <div class="rating-summary">
+              <span class="overall-rating">4.8 ⭐</span>
+              <span class="review-count">(23 reviews)</span>
+            </div>
+          </div>
+
+          <div id="reviewsList" class="reviews-list">
+            <!-- Reviews will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Payments Section -->
+        <div class="dashboard-section" id="payments">
+          <div class="section-header">
+            <h2 id="paymentsSectionTitle">Payment History</h2>
+          </div>
+
+          <div id="paymentsContent">
+            <!-- Payment content will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="dashboard-section" id="settings">
+          <div class="section-header">
+            <h2>Account Settings</h2>
+          </div>
+
+          <div class="settings-grid">
+            <div class="setting-card">
+              <h3>Profile Information</h3>
+              <p>Update your personal details and contact information</p>
+              <button class="btn-primary">Edit Profile</button>
+            </div>
+
+            <div class="setting-card">
+              <h3>Notifications</h3>
+              <p>Manage email and push notification preferences</p>
+              <button class="btn-ghost">Notification Settings</button>
+            </div>
+
+            <div class="setting-card">
+              <h3>Privacy & Safety</h3>
+              <p>Control your privacy settings and safety features</p>
+              <button class="btn-ghost">Privacy Settings</button>
+            </div>
+
+            <div class="setting-card">
+              <h3>Account Security</h3>
+              <p>Change password and manage security settings</p>
+              <button class="btn-ghost">Security Settings</button>
+            </div>
+
+            <div class="setting-card">
+              <h3>Payment Methods</h3>
+              <p>Manage your saved payment methods and billing</p>
+              <button class="btn-ghost">Payment Settings</button>
+            </div>
+
+            <div class="setting-card">
+              <h3>Data & Privacy</h3>
+              <p>Download your data or delete your account</p>
+              <button class="btn-ghost">Data Settings</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Sitter Squad • Trusted Childcare Platform</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+  <script>
+    // Check if user is logged in
+    const authToken = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+    if (!authToken || !user.id) {
+      window.location.href = '/login.html?returnTo=' + encodeURIComponent(window.location.href);
+    }
+
+    // Set up dashboard based on user type
+    function initializeDashboard() {
+      const userName = document.getElementById('userName');
+      const welcomeName = document.getElementById('welcomeName');
+      const dashboardTitle = document.getElementById('dashboardTitle');
+      const dashboardSubtitle = document.getElementById('dashboardSubtitle');
+      
+      userName.textContent = user.firstName || 'User';
+      welcomeName.textContent = user.firstName || 'User';
+      
+      if (user.accountType === 'parent') {
+        dashboardTitle.textContent = 'Parent Dashboard';
+        dashboardSubtitle.textContent = 'Manage your childcare needs';
+        document.getElementById('browseSittersNav').style.display = 'flex';
+        document.getElementById('postJobNav').style.display = 'flex';
+        document.getElementById('jobsNavLabel').textContent = 'My Jobs';
+        document.getElementById('jobsSectionTitle').textContent = 'My Job Posts';
+        document.getElementById('newJobBtn').style.display = 'inline-block';
+        document.getElementById('paymentsNavLabel').textContent = 'Payment History';
+        document.getElementById('paymentsSectionTitle').textContent = 'Booking Fees & Receipts';
+      } else {
+        dashboardTitle.textContent = 'Sitter Dashboard';
+        dashboardSubtitle.textContent = 'Manage your babysitting services';
+        document.getElementById('jobsNavLabel').textContent = 'Job Applications';
+        document.getElementById('jobsSectionTitle').textContent = 'Available Jobs & Applications';
+        document.getElementById('paymentsNavLabel').textContent = 'Earnings';
+        document.getElementById('paymentsSectionTitle').textContent = 'Payment History';
+      }
+    }
+
+    // Dashboard navigation
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.dashboard-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Remove active state from nav items
+      document.querySelectorAll('.dashboard-nav-items .nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Show selected section
+      document.getElementById(sectionId).classList.add('active');
+      
+      // Set active nav item
+      document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
+      
+      // Load section data
+      loadSectionData(sectionId);
+    }
+
+    // Load data for each section
+    async function loadSectionData(sectionId) {
+      switch(sectionId) {
+        case 'overview':
+          loadOverviewData();
+          break;
+        case 'jobs':
+          loadJobsData();
+          break;
+        case 'bookings':
+          loadBookingsData();
+          break;
+        case 'messages':
+          loadMessagesData();
+          break;
+        case 'reviews':
+          loadReviewsData();
+          break;
+        case 'payments':
+          loadPaymentsData();
+          break;
+      }
+    }
+
+    function loadOverviewData() {
+      const statsGrid = document.getElementById('statsGrid');
+      const activityList = document.getElementById('recentActivityList');
+      
+      if (user.accountType === 'parent') {
+        statsGrid.innerHTML = `
+          <div class="stat-card">
+            <h4>Active Jobs</h4>
+            <span class="stat-number">3</span>
+          </div>
+          <div class="stat-card">
+            <h4>Total Bookings</h4>
+            <span class="stat-number">12</span>
+          </div>
+          <div class="stat-card">
+            <h4>Favourite Sitters</h4>
+            <span class="stat-number">5</span>
+          </div>
+          <div class="stat-card">
+            <h4>This Month's Spend</h4>
+            <span class="stat-number">£45</span>
+          </div>
+        `;
+      } else {
+        statsGrid.innerHTML = `
+          <div class="stat-card">
+            <h4>Active Applications</h4>
+            <span class="stat-number">2</span>
+          </div>
+          <div class="stat-card">
+            <h4>Completed Jobs</h4>
+            <span class="stat-number">15</span>
+          </div>
+          <div class="stat-card">
+            <h4>Average Rating</h4>
+            <span class="stat-number">4.8 ⭐</span>
+          </div>
+          <div class="stat-card">
+            <h4>This Month's Earnings</h4>
+            <span class="stat-number">£280</span>
+          </div>
+        `;
+      }
+      
+      activityList.innerHTML = `
+        <div class="activity-item">
+          <span class="activity-icon">📅</span>
+          <div class="activity-content">
+            <p><strong>Booking confirmed</strong> with Sarah Johnson for tomorrow 7PM</p>
+            <span class="activity-time">2 hours ago</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <span class="activity-icon">⭐</span>
+          <div class="activity-content">
+            <p><strong>New review received</strong> - "Excellent babysitter, highly recommended!"</p>
+            <span class="activity-time">1 day ago</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <span class="activity-icon">💬</span>
+          <div class="activity-content">
+            <p><strong>New message</strong> from Emma Thompson about weekend availability</p>
+            <span class="activity-time">2 days ago</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function loadJobsData() {
+      // Load jobs data
+      console.log('Loading jobs data...');
+    }
+
+    function loadBookingsData() {
+      // Load bookings data  
+      console.log('Loading bookings data...');
+    }
+
+    function loadMessagesData() {
+      // Load messages data
+      console.log('Loading messages data...');
+    }
+
+    function loadReviewsData() {
+      // Load reviews data
+      console.log('Loading reviews data...');
+    }
+
+    function loadPaymentsData() {
+      // Load payments data
+      console.log('Loading payments data...');
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeDashboard();
+      loadOverviewData();
+
+      // Navigation event listeners
+      document.querySelectorAll('[data-section]').forEach(button => {
+        button.addEventListener('click', function() {
+          showSection(this.dataset.section);
+        });
+      });
+
+      // Logout functionality
+      document.getElementById('logoutBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        localStorage.removeItem('authToken');
+        sessionStorage.removeItem('authToken');
+        localStorage.removeItem('user');
+        window.location.href = '/';
+      });
+
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

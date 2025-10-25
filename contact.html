@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+      <div class="banner-text">
+        <h1><a href="/" style="color:white;text-decoration:none">Cub Hub Herts</a></h1>
+        <p class="tagline">Get in touch with us</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/providers.html" class="nav-btn">Providers</a>
+        <a href="/jobs.html" class="nav-btn">Jobs</a>
+        <a href="/events.html" class="nav-btn">Events</a>
+        <a href="/agencies.html" class="nav-btn">Agencies</a>
+        <a href="/blog.html" class="nav-btn">Blog</a>
+        <a href="/groups-classes.html" class="nav-btn">Groups & Classes</a>
+        <a href="/add-listing.html" class="nav-btn">Add Your Listing</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="form-card">
+      <h2>Contact Us</h2>
+      <p>Have a question, suggestion, or need help? We'd love to hear from you! Whether you need support with your listing, have feedback about the site, or want to get involved with Cub Hub Herts community, drop us a message below.</p>
+      
+      <form id="contactForm" class="submit-form" netlify name="contact-form">
+        <div class="two-col">
+          <div class="field">
+            <label for="contactName">Name <span class="req">*</span></label>
+            <input id="contactName" name="name" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="contactEmail">Email <span class="req">*</span></label>
+            <input id="contactEmail" name="email" type="email" required placeholder="your@email.com" />
+          </div>
+          <div class="field wide">
+            <label for="contactSubject">Subject <span class="req">*</span></label>
+            <input id="contactSubject" name="subject" required placeholder="What is your message about?" />
+          </div>
+          <div class="field wide">
+            <label for="contactMessage">Message <span class="req">*</span></label>
+            <textarea id="contactMessage" name="message" rows="6" required placeholder="Please tell us how we can help you..."></textarea>
+          </div>
+        </div>
+        
+        <!-- Honeypot field to prevent spam -->
+        <p style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+        
+        <div class="row buttons">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <span id="contactStatus" class="status"></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-card">
+      <h2>Other Ways to Reach Us</h2>
+      <div class="two-col" style="align-items: start;">
+        <div>
+          <h3>For Urgent Matters</h3>
+          <p>If you have an urgent issue with your listing or need immediate assistance, please use the contact form above and mark your subject as "Urgent".</p>
+        </div>
+        <div>
+          <h3>Community Guidelines</h3>
+          <p>Cub Hub Herts is a community platform for families in Hertfordshire. Please review our community guidelines before posting listings or content.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (sel) => document.querySelector(sel);
+    const yearEl = $('#year'); 
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Contact form
+    $('#contactForm').addEventListener('submit', function(e) {
+      const status = $('#contactStatus');
+      status.textContent = 'Sending...';
+      status.style.color = '#5b7486';
+      
+      // Let the form submit naturally to Netlify Forms
+      // The status will be handled by Netlify's success/error pages
+    });
+  </script>
+</body>
+</html>

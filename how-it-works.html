@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How It Works — Sitter Squad</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner small">
+      <div class="banner-text">
+        <h1>How Sitter Squad Works</h1>
+        <p class="tagline">A simple, safe way to connect families with trusted babysitters</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/browse-sitters.html" class="nav-btn">Browse Sitters</a>
+        <a href="/how-it-works.html" class="nav-btn active">How It Works</a>
+        <a href="/pricing.html" class="nav-btn">Pricing</a>
+        <div class="nav-auth">
+          <a href="/login.html" class="nav-btn" id="loginBtn">Login</a>
+          <a href="/signup.html" class="nav-btn btn-primary" id="signupBtn">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="intro-section">
+      <h2>Our Simple 3-Step Process</h2>
+      <p>Sitter Squad makes it easy for families to find trusted childcare and for sitters to find rewarding work. Here's how our platform works for both parents and babysitters.</p>
+    </section>
+
+    <section class="how-it-works">
+      <div class="user-type-selector">
+        <button class="btn-primary active" onclick="showSteps('parent')">For Parents</button>
+        <button class="btn-ghost" onclick="showSteps('sitter')">For Sitters</button>
+      </div>
+
+      <div id="parent-steps" class="steps-container">
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Find Your Perfect Sitter</h3>
+            <p>Browse our community of verified babysitters or post a job to receive applications. Filter by location, experience, skills, and availability to find the perfect match.</p>
+            <ul>
+              <li>Search by location and availability</li>
+              <li>View detailed profiles and reviews</li>
+              <li>Check qualifications and verification status</li>
+              <li>Or post a job and let sitters come to you</li>
+            </ul>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Book & Pay Small Fee</h3>
+            <p>Once you've found the right sitter, confirm your booking with them through our platform. Pay our small £5 booking fee to secure your slot.</p>
+            <ul>
+              <li>Direct messaging with your chosen sitter</li>
+              <li>Confirm dates, times, and requirements</li>
+              <li>Pay £5 booking fee via secure checkout</li>
+              <li>You pay the sitter directly for their time</li>
+            </ul>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Enjoy Peace of Mind</h3>
+            <p>Relax knowing your children are with a trusted, verified babysitter. After the job, leave a review to help other families.</p>
+            <ul>
+              <li>Your sitter has your contact details for emergencies</li>
+              <li>Pay the sitter directly in cash or bank transfer</li>
+              <li>Leave a review after the job</li>
+              <li>Book the same sitter again anytime</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="sitter-steps" class="steps-container" style="display: none;">
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Apply & Get Verified</h3>
+            <p>Create your profile and submit your DBS check and references. We'll review your application and get you approved within 48 hours.</p>
+            <ul>
+              <li>Complete your detailed profile</li>
+              <li>Upload DBS check and references</li>
+              <li>Add your experience and qualifications</li>
+              <li>Get approved within 48 hours</li>
+            </ul>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Find Jobs & Apply</h3>
+            <p>Browse available babysitting jobs in your area or receive invitations from families who like your profile. Apply with a personalized message.</p>
+            <ul>
+              <li>See jobs that match your skills and location</li>
+              <li>Receive direct invitations from families</li>
+              <li>Apply with your availability and rate</li>
+              <li>Message families to discuss details</li>
+            </ul>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Get Booked & Earn</h3>
+            <p>Once a family books you, provide excellent care and get paid directly. Build your reputation with positive reviews to attract more families.</p>
+            <ul>
+              <li>Provide great childcare service</li>
+              <li>Get paid directly by the family</li>
+              <li>Receive reviews to build your reputation</li>
+              <li>Keep 100% of your hourly rate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="key-features">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>🔒 Verified Sitters</h3>
+          <p>All babysitters undergo enhanced DBS checks and reference verification before being approved on our platform.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3>💬 Direct Messaging</h3>
+          <p>Secure messaging system allows families and sitters to communicate directly while maintaining privacy until booking is confirmed.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3>⭐ Review System</h3>
+          <p>Honest reviews from real bookings help both families and sitters make informed decisions and build trust in the community.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3>💳 Simple Payments</h3>
+          <p>Just pay a small £5 booking fee to us. Sitters are paid directly by families, keeping things simple and transparent.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3>📱 Mobile Friendly</h3>
+          <p>Our platform works seamlessly on all devices, so you can find or manage bookings whether you're at home or on the go.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3>🛡️ Safety First</h3>
+          <p>Comprehensive safety guidelines, emergency contacts, and incident reporting ensure everyone's wellbeing and peace of mind.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="business-model">
+      <h2>Our Business Model</h2>
+      <div class="model-explanation">
+        <div class="model-card">
+          <h3>For Families</h3>
+          <p>You pay a small £5 booking fee when you confirm a babysitter. This fee covers our platform costs and ensures commitment from both sides. You pay the babysitter directly for their time at your agreed hourly rate.</p>
+          <div class="pricing-breakdown">
+            <div class="price-item">
+              <span>Booking fee (to Sitter Squad):</span>
+              <strong>£5.00</strong>
+            </div>
+            <div class="price-item">
+              <span>Babysitter payment (direct to sitter):</span>
+              <strong>Your agreed rate</strong>
+            </div>
+          </div>
+        </div>
+        
+        <div class="model-card">
+          <h3>For Babysitters</h3>
+          <p>It's completely free to join and create your profile. You keep 100% of your hourly rate when you work. We don't take any commission from your earnings - we only earn when families book through our platform.</p>
+          <div class="pricing-breakdown">
+            <div class="price-item">
+              <span>Profile creation:</span>
+              <strong>FREE</strong>
+            </div>
+            <div class="price-item">
+              <span>Job applications:</span>
+              <strong>FREE</strong>
+            </div>
+            <div class="price-item">
+              <span>Your earnings:</span>
+              <strong>100% of your rate</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="safety-overview">
+      <h2>Safety & Trust</h2>
+      <p>Safety is our top priority. Here's how we ensure a secure environment for families and babysitters:</p>
+      
+      <div class="safety-features">
+        <div class="safety-item">
+          <h4>Enhanced DBS Checks</h4>
+          <p>All babysitters must have a current enhanced DBS check. We verify the certificate and expiry date.</p>
+        </div>
+        
+        <div class="safety-item">
+          <h4>Reference Verification</h4>
+          <p>We contact references provided by babysitters to verify their experience and suitability for childcare.</p>
+        </div>
+        
+        <div class="safety-item">
+          <h4>Identity Verification</h4>
+          <p>Sitters must provide photo ID and proof of address. Families are verified through email and phone confirmation.</p>
+        </div>
+        
+        <div class="safety-item">
+          <h4>Secure Platform</h4>
+          <p>All data is encrypted and stored securely. Personal details are only shared after confirmed bookings.</p>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="faq-preview">
+      <h2>Common Questions</h2>
+      <div class="faq-items">
+        <div class="faq-item">
+          <h4>What if I need to cancel a booking?</h4>
+          <p>You can cancel up to 24 hours before the booking for a full refund of the booking fee. Last-minute cancellations may not be refundable.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>How do I know a babysitter is qualified?</h4>
+          <p>All sitters display verification badges showing their DBS status, qualifications, and verified features. You can see their full profile and reviews before booking.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What happens if there's an emergency?</h4>
+          <p>Sitters have access to emergency contacts and clear procedures. We also provide 24/7 support for urgent situations.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Can I book the same sitter regularly?</h4>
+          <p>Absolutely! Once you find a sitter you trust, you can book them as often as they're available. Many families develop ongoing relationships with their preferred sitters.</p>
+        </div>
+      </div>
+      
+      <p><a href="/faq.html" class="btn-ghost">View All FAQ</a></p>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-card">
+        <h2>Ready to Get Started?</h2>
+        <p>Join thousands of families and babysitters who trust Sitter Squad for safe, reliable childcare connections.</p>
+        <div class="cta-actions">
+          <a href="/signup.html" class="btn-primary btn-large">Sign Up Now</a>
+          <a href="/browse-sitters.html" class="btn-ghost btn-large">Browse Sitters</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Sitter Squad • Trusted Childcare Platform</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+  <script>
+    function showSteps(type) {
+      const parentSteps = document.getElementById('parent-steps');
+      const sitterSteps = document.getElementById('sitter-steps');
+      const buttons = document.querySelectorAll('.user-type-selector button');
+      
+      if (type === 'parent') {
+        parentSteps.style.display = 'block';
+        sitterSteps.style.display = 'none';
+        buttons[0].className = 'btn-primary active';
+        buttons[1].className = 'btn-ghost';
+      } else {
+        parentSteps.style.display = 'none';
+        sitterSteps.style.display = 'block';
+        buttons[0].className = 'btn-ghost';
+        buttons[1].className = 'btn-primary active';
+      }
+    }
+    
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

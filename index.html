@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitter Squad — Trusted Babysitting Platform</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <div class="banner-text">
+        <h1>Sitter Squad</h1>
+        <p class="tagline">Connect with trusted, verified babysitters in your area. Pay sitters directly, we just charge a small booking fee.</p>
+        <div class="hero-actions">
+          <a href="/browse-sitters.html" class="btn-primary btn-large">Find a Sitter</a>
+          <a href="/become-sitter.html" class="btn-ghost btn-large">Become a Sitter</a>
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/browse-sitters.html" class="nav-btn">Browse Sitters</a>
+        <a href="/how-it-works.html" class="nav-btn">How It Works</a>
+        <a href="/pricing.html" class="nav-btn">Pricing</a>
+        <div class="nav-auth">
+          <a href="/login.html" class="nav-btn" id="loginBtn">Login</a>
+          <a href="/signup.html" class="nav-btn btn-primary" id="signupBtn">Sign Up</a>
+          <div class="user-menu" id="userMenu" style="display: none;">
+            <span id="userName"></span>
+            <a href="/dashboard.html" class="nav-btn">Dashboard</a>
+            <a href="#" class="nav-btn" id="logoutBtn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Find Your Perfect Sitter</h3>
+          <p>Browse verified babysitters or post a job to receive applications. All sitters are DBS checked with verified references.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Book & Pay Small Fee</h3>
+          <p>Confirm your booking with the sitter and pay our small booking fee. You pay the sitter directly for their time.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Enjoy Peace of Mind</h3>
+          <p>Relax knowing your children are with a trusted, verified babysitter. Leave reviews after each booking.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-signals">
+      <h2>Why Families Trust Us</h2>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <h4>🔒 DBS Verified</h4>
+          <p>All babysitters undergo enhanced DBS checks</p>
+        </div>
+        <div class="trust-item">
+          <h4>🩹 First Aid Certified</h4>
+          <p>Many sitters are qualified in paediatric first aid</p>
+        </div>
+        <div class="trust-item">
+          <h4>⭐ Verified Reviews</h4>
+          <p>Only real bookings can leave reviews</p>
+        </div>
+        <div class="trust-item">
+          <h4>📞 24/7 Support</h4>
+          <p>Help when you need it most</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-sitters">
+      <div class="section-header">
+        <h2>Featured Babysitters</h2>
+        <a href="/browse-sitters.html" class="btn-ghost">View All</a>
+      </div>
+      <div id="featuredSittersGrid" class="sitters-grid"></div>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Families Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Amazing service! Found a wonderful babysitter for our twins. The verification process gave us complete confidence."</p>
+          <cite>— Sarah M., St Albans</cite>
+        </div>
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"So easy to use and the booking fee is very reasonable. Our babysitter was punctual and brilliant with our son."</p>
+          <cite>— James L., Watford</cite>
+        </div>
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Love that I can pay the sitter directly but still have the platform's trust and safety features."</p>
+          <cite>— Emma T., Hertford</cite>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Sitter Squad • Trusted Childcare Platform</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

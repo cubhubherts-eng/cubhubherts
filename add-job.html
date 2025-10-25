@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Job Listing — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+      <div class="banner-text">
+        <h1><a href="/" style="color:white;text-decoration:none">Cub Hub Herts</a></h1>
+        <p class="tagline">Post a childcare job</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/providers.html" class="nav-btn">Providers</a>
+        <a href="/jobs.html" class="nav-btn">Jobs</a>
+        <a href="/events.html" class="nav-btn">Events</a>
+        <a href="/agencies.html" class="nav-btn">Agencies</a>
+        <a href="/blog.html" class="nav-btn">Blog</a>
+        <a href="/groups-classes.html" class="nav-btn">Groups & Classes</a>
+        <a href="/add-listing.html" class="nav-btn">Add Your Listing</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="submit-card">
+      <h2>Job Listing Details</h2>
+      <p>Find the perfect childcare professional for your family</p>
+      
+      <form id="jobForm" class="submit-form" netlify name="job-listing">
+        <div class="grid-2">
+          <div class="field">
+            <label for="title">Job Title <span class="req">*</span></label>
+            <input id="title" name="title" required placeholder="e.g., Experienced Nanny Needed" />
+          </div>
+          <div class="field">
+            <label for="categoryInput">Job Type <span class="req">*</span></label>
+            <select id="categoryInput" name="category" required>
+              <option value="">Select…</option>
+              <option>Nanny</option>
+              <option>Babysitter</option>
+              <option>Childminder</option>
+              <option>Au Pair</option>
+              <option>Tutor</option>
+              <option>Nursery Staff</option>
+              <option>Teaching Assistant</option>
+              <option>After School Care</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="employment">Employment Type</label>
+            <select id="employment" name="employment">
+              <option value="">Select…</option>
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Casual/Ad-hoc</option>
+              <option>Live-in</option>
+              <option>Live-out</option>
+              <option>Temporary</option>
+              <option>Permanent</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="townInput">Location <span class="req">*</span></label>
+            <input id="townInput" name="town" required placeholder="e.g., Harpenden" list="towns" />
+          </div>
+          <div class="field">
+            <label for="salary">Salary/Rate <span class="req">*</span></label>
+            <input id="salary" name="salary" required placeholder="e.g., £15/hour, £35k/year" />
+          </div>
+          <div class="field">
+            <label for="hours">Working Hours</label>
+            <input id="hours" name="hours" placeholder="e.g., Mon-Fri 8am-6pm" />
+          </div>
+          <div class="field">
+            <label for="children">Number of Children</label>
+            <input id="children" name="children" placeholder="e.g., 2 children" />
+          </div>
+          <div class="field">
+            <label for="ages">Children's Ages</label>
+            <input id="ages" name="ages" placeholder="e.g., 3 years, 6 years" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="about">Job Description <span class="req">*</span></label>
+            <textarea id="about" name="about" rows="4" required placeholder="Describe the role, responsibilities, and what you're looking for…"></textarea>
+          </div>
+          <div class="field grid-col-span-2">
+            <label>Requirements</label>
+            <div class="badges">
+              <label><input type="checkbox" name="dbs"> DBS Check Required</label>
+              <label><input type="checkbox" name="firstaid"> First Aid Certificate</label>
+              <label><input type="checkbox" name="experience"> Previous Experience</label>
+              <label><input type="checkbox" name="sen"> SEN Experience</label>
+              <label><input type="checkbox" name="driving"> Driving Licence</label>
+              <label><input type="checkbox" name="references"> References Required</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="startDate">Start Date</label>
+            <input id="startDate" name="startDate" type="date" />
+          </div>
+          <div class="field">
+            <label for="duration">Duration</label>
+            <input id="duration" name="duration" placeholder="e.g., Ongoing, 6 months" />
+          </div>
+          <div class="field">
+            <label for="contactName">Contact Name <span class="req">*</span></label>
+            <input id="contactName" name="contactName" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Contact Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" required placeholder="name@example.com" />
+          </div>
+          <div class="field">
+            <label for="phone">Contact Phone</label>
+            <input id="phone" name="phone" placeholder="+44…" />
+          </div>
+          <div class="field">
+            <label for="urgency">Urgency</label>
+            <select id="urgency" name="urgency">
+              <option value="">Select…</option>
+              <option>ASAP</option>
+              <option>Within a week</option>
+              <option>Within a month</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="benefits">Benefits/Perks</label>
+            <input id="benefits" name="benefits" placeholder="e.g., parking, meals included, holiday pay" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="additional">Additional Information</label>
+            <textarea id="additional" name="additional" rows="3" placeholder="Any other details about the role or family…"></textarea>
+          </div>
+        </div>
+
+        <!-- Honeypot field to prevent spam -->
+        <p style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <datalist id="towns">
+          <option value="Abbots Langley"></option><option value="Ashwell"></option><option value="Baldock"></option><option value="Berkhamsted"></option><option value="Bishop's Stortford"></option><option value="Borehamwood"></option><option value="Broxbourne"></option><option value="Buntingford"></option><option value="Bushey"></option><option value="Cheshunt"></option><option value="Chorleywood"></option><option value="Croxley Green"></option><option value="Cuffley"></option><option value="Elstree"></option><option value="Essendon"></option><option value="Flamstead"></option><option value="Great Amwell"></option><option value="Great Offley"></option><option value="Harpenden"></option><option value="Hatfield"></option><option value="Hemel Hempstead"></option><option value="Hertford"></option><option value="Hitchin"></option><option value="Hoddesdon"></option><option value="Knebworth"></option><option value="Kimpton"></option><option value="Kings Langley"></option><option value="Letchworth Garden City"></option><option value="Little Hadham"></option><option value="London Colney"></option><option value="Maple Cross"></option><option value="Markyate"></option><option value="Much Hadham"></option><option value="Northwood (Herts)"></option><option value="Potters Bar"></option><option value="Radlett"></option><option value="Redbourn"></option><option value="Rickmansworth"></option><option value="Royston"></option><option value="Sandridge"></option><option value="Sawbridgeworth"></option><option value="Shenley"></option><option value="South Oxhey"></option><option value="St Albans"></option><option value="Stanstead Abbotts"></option><option value="Stevenage"></option><option value="Tewin"></option><option value="Tring"></option><option value="Ware"></option><option value="Waltham Cross"></option><option value="Watford"></option><option value="Watton-at-Stone"></option><option value="Welham Green"></option><option value="Welwyn"></option><option value="Welwyn Garden City"></option><option value="Wheathampstead"></option><option value="Goffs Oak"></option><option value="Brookmans Park"></option><option value="Bayford"></option><option value="Hunsdon"></option><option value="Puckeridge"></option><option value="Standon"></option><option value="Digswell"></option><option value="Codicote"></option><option value="Cranborne"></option><option value="Waltham Abbey (Herts)"></option><option value="Little Gaddesden"></option><option value="Napsbury"></option><option value="How Wood"></option><option value="Park Street"></option><option value="Bricket Wood"></option>
+        </datalist>
+
+        <div class="row buttons">
+          <button type="submit" class="btn-primary">Submit Job Listing</button>
+          <span id="submitStatus" class="status"></span>
+        </div>
+      </form>
+
+      <div class="back-link">
+        <a href="/add-listing.html" class="btn-ghost">← Back to Categories</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    document.getElementById('jobForm').addEventListener('submit', function(e) {
+      const status = document.getElementById('submitStatus');
+      status.textContent = 'Submitting...';
+      status.style.color = '#5b7486';
+      
+      // Let the form submit naturally to Netlify Forms
+      // The status will be handled by Netlify's success/error pages
+    });
+  </script>
+</body>
+</html>

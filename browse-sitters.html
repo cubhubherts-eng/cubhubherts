@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Browse Babysitters — Sitter Squad</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner small">
+      <div class="banner-text">
+        <h1>Browse Babysitters</h1>
+        <p class="tagline">Find trusted, verified babysitters in your area</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/browse-sitters.html" class="nav-btn active">Browse Sitters</a>
+        <a href="/how-it-works.html" class="nav-btn">How It Works</a>
+        <a href="/pricing.html" class="nav-btn">Pricing</a>
+        <div class="nav-auth">
+          <a href="/login.html" class="nav-btn" id="loginBtn">Login</a>
+          <a href="/signup.html" class="nav-btn btn-primary" id="signupBtn">Sign Up</a>
+          <div class="user-menu" id="userMenu" style="display: none;">
+            <span id="userName"></span>
+            <a href="/dashboard.html" class="nav-btn">Dashboard</a>
+            <a href="#" class="nav-btn" id="logoutBtn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="filters-card">
+      <h2>Filter Babysitters</h2>
+      <form id="sitterFilters" class="filter-form">
+        <div class="row">
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" name="location" placeholder="Postcode or town" list="towns" />
+            <datalist id="towns">
+              <option value="St Albans"></option>
+              <option value="Watford"></option>
+              <option value="Hertford"></option>
+              <option value="Hemel Hempstead"></option>
+              <option value="Stevenage"></option>
+              <option value="Harpenden"></option>
+              <option value="Welwyn Garden City"></option>
+              <option value="Hitchin"></option>
+              <option value="Letchworth"></option>
+              <option value="Berkhamsted"></option>
+            </datalist>
+          </div>
+          <div class="field">
+            <label for="radius">Within</label>
+            <select id="radius" name="radius">
+              <option value="5">5 miles</option>
+              <option value="10" selected>10 miles</option>
+              <option value="15">15 miles</option>
+              <option value="20">20 miles</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="availability">Available</label>
+            <input type="date" id="availability" name="availability" />
+          </div>
+          <div class="field">
+            <label for="priceRange">Hourly Rate</label>
+            <select id="priceRange" name="priceRange">
+              <option value="">Any</option>
+              <option value="8-12">£8-12</option>
+              <option value="12-16">£12-16</option>
+              <option value="16-20">£16-20</option>
+              <option value="20+">£20+</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="field checkbox-group">
+            <label>Skills & Experience</label>
+            <div class="checkboxes">
+              <label><input type="checkbox" name="skills" value="newborn"> Newborn care</label>
+              <label><input type="checkbox" name="skills" value="sen"> SEN experience</label>
+              <label><input type="checkbox" name="skills" value="twins"> Multiple children</label>
+              <label><input type="checkbox" name="skills" value="overnight"> Overnight sitting</label>
+              <label><input type="checkbox" name="skills" value="cooking"> Light cooking</label>
+              <label><input type="checkbox" name="skills" value="driving"> Has car</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field checkbox-group">
+            <label>Verified Features</label>
+            <div class="checkboxes">
+              <label><input type="checkbox" name="verified" value="dbs"> DBS checked</label>
+              <label><input type="checkbox" name="verified" value="firstaid"> First aid certified</label>
+              <label><input type="checkbox" name="verified" value="references"> Verified references</label>
+              <label><input type="checkbox" name="verified" value="experienced"> 2+ years experience</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row buttons">
+          <button type="submit" class="btn-primary">Search</button>
+          <button type="reset" class="btn-ghost">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-section">
+      <div class="results-header">
+        <h2>Available Babysitters</h2>
+        <div class="sort-controls">
+          <label for="sortBy">Sort by:</label>
+          <select id="sortBy" name="sortBy">
+            <option value="rating">Highest rated</option>
+            <option value="distance">Nearest first</option>
+            <option value="price-low">Price (low to high)</option>
+            <option value="price-high">Price (high to low)</option>
+            <option value="newest">Newest first</option>
+          </select>
+        </div>
+        <span id="resultCount" class="muted">Showing 12 babysitters</span>
+      </div>
+
+      <div id="sittersGrid" class="sitters-grid">
+        <!-- Example sitter cards - these would be populated by JavaScript -->
+        <div class="sitter-card">
+          <div class="sitter-photo">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b72b9006?w=150&h=150&fit=crop&crop=face" alt="Sarah Johnson">
+          </div>
+          <div class="sitter-info">
+            <h3>Sarah Johnson</h3>
+            <div class="rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="rating-count">(23 reviews)</span>
+            </div>
+            <p class="experience">5 years experience • Ages 6 months - 12 years</p>
+            <div class="badges">
+              <span class="badge verified">DBS ✓</span>
+              <span class="badge verified">First Aid ✓</span>
+              <span class="badge">Newborn</span>
+            </div>
+            <p class="bio">Experienced childcare provider specializing in newborn care. I love engaging children with creative activities and outdoor play.</p>
+            <div class="sitter-details">
+              <span class="location">📍 St Albans (2.3 miles)</span>
+              <span class="rate">💷 £15/hour</span>
+            </div>
+            <div class="sitter-actions">
+              <a href="/sitter-profile.html?id=sarah-johnson" class="btn-primary">View Profile</a>
+              <button class="btn-ghost" onclick="toggleFavourite('sarah-johnson')">💛 Save</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sitter-card">
+          <div class="sitter-photo">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="Emma Thompson">
+          </div>
+          <div class="sitter-info">
+            <h3>Emma Thompson</h3>
+            <div class="rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="rating-count">(18 reviews)</span>
+            </div>
+            <p class="experience">3 years experience • Ages 2 - 10 years</p>
+            <div class="badges">
+              <span class="badge verified">DBS ✓</span>
+              <span class="badge verified">First Aid ✓</span>
+              <span class="badge">SEN</span>
+              <span class="badge">Driving</span>
+            </div>
+            <p class="bio">Patient and nurturing babysitter with SEN experience. Happy to help with homework, light meals, and bedtime routines.</p>
+            <div class="sitter-details">
+              <span class="location">📍 Watford (3.1 miles)</span>
+              <span class="rate">💷 £12/hour</span>
+            </div>
+            <div class="sitter-actions">
+              <a href="/sitter-profile.html?id=emma-thompson" class="btn-primary">View Profile</a>
+              <button class="btn-ghost" onclick="toggleFavourite('emma-thompson')">🤍 Save</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sitter-card">
+          <div class="sitter-photo">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="James Wilson">
+          </div>
+          <div class="sitter-info">
+            <h3>James Wilson</h3>
+            <div class="rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span class="rating-count">(31 reviews)</span>
+            </div>
+            <p class="experience">4 years experience • Ages 3 - 14 years</p>
+            <div class="badges">
+              <span class="badge verified">DBS ✓</span>
+              <span class="badge verified">Refs ✓</span>
+              <span class="badge">Sports</span>
+              <span class="badge">Tutoring</span>
+            </div>
+            <p class="bio">Active male babysitter who loves sports and outdoor activities. Great with energetic children and can help with homework.</p>
+            <div class="sitter-details">
+              <span class="location">📍 Hertford (4.2 miles)</span>
+              <span class="rate">💷 £18/hour</span>
+            </div>
+            <div class="sitter-actions">
+              <a href="/sitter-profile.html?id=james-wilson" class="btn-primary">View Profile</a>
+              <button class="btn-ghost" onclick="toggleFavourite('james-wilson')">🤍 Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <button class="btn-ghost" disabled>← Previous</button>
+        <span class="page-info">Page 1 of 4</span>
+        <button class="btn-ghost">Next →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Sitter Squad • Trusted Childcare Platform</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

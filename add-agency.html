@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Agency Listing — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+      <div class="banner-text">
+        <h1><a href="/" style="color:white;text-decoration:none">Cub Hub Herts</a></h1>
+        <p class="tagline">Add your agency listing</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="submit-card">
+      <h2>Agency Listing Details</h2>
+      <p>Tell families about your agency services</p>
+      
+      <form id="agencyForm" class="submit-form" netlify name="agency-listing">
+        <div class="grid-2">
+          <div class="field">
+            <label for="title">Business Name <span class="req">*</span></label>
+            <input id="title" name="title" required placeholder="e.g., ABC Nanny Agency" />
+          </div>
+          <div class="field">
+            <label for="subcategoryInput">Agency Type <span class="req">*</span></label>
+            <select id="subcategoryInput" name="subcategory" required>
+              <option value="">Select…</option>
+              <option>Nanny agency</option>
+              <option>Babysitting agency</option>
+              <option>Recruitment agency</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="address">Business Address <span class="req">*</span></label>
+            <input id="address" name="address" required placeholder="Full business address" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="areas">Areas Covered <span class="req">*</span></label>
+            <input id="areas" name="areas" required placeholder="e.g., St Albans, Harpenden, Hertford, or All Hertfordshire" />
+          </div>
+          <div class="field">
+            <label for="phone">Contact Phone Number <span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" required placeholder="e.g., 01727 123456" />
+          </div>
+          <div class="field">
+            <label for="website">Website URL <span class="req">*</span></label>
+            <input id="website" name="website" type="url" required placeholder="https://example.com" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="about">About Your Agency <span class="req">*</span></label>
+            <textarea id="about" name="about" rows="4" required placeholder="Describe your agency, services offered, experience, and what makes you unique…"></textarea>
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="featuredImageUrl">Logo/Photo Upload</label>
+            <input id="featuredImageUrl" name="featuredImageUrl" type="file" accept="image/*" />
+            <small>Upload your business logo or a professional photo</small>
+          </div>
+        </div>
+
+        <!-- Honeypot field to prevent spam -->
+        <p style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <input type="hidden" name="category" value="Agencies" />
+
+        <div class="row buttons">
+          <button type="submit" class="btn-primary">Submit Agency Listing</button>
+          <span id="submitStatus" class="status"></span>
+        </div>
+      </form>
+
+      <div class="back-link">
+        <a href="/add-listing.html" class="btn-ghost">← Back to Categories</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    document.getElementById('agencyForm').addEventListener('submit', function(e) {
+      const status = document.getElementById('submitStatus');
+      status.textContent = 'Submitting...';
+      status.style.color = '#5b7486';
+      
+      // Let the form submit naturally to Netlify Forms
+      // The status will be handled by Netlify's success/error pages
+    });
+  </script>
+</body>
+</html>

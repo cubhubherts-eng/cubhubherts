@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up — Sitter Squad</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner small">
+      <div class="banner-text">
+        <h1>Join Sitter Squad</h1>
+        <p class="tagline">Connect with trusted childcare in your area</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/browse-sitters.html" class="nav-btn">Browse Sitters</a>
+        <a href="/how-it-works.html" class="nav-btn">How It Works</a>
+        <a href="/pricing.html" class="nav-btn">Pricing</a>
+        <div class="nav-auth">
+          <a href="/login.html" class="nav-btn">Login</a>
+          <a href="/signup.html" class="nav-btn btn-primary active">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="auth-container">
+      <div class="account-type-selection" id="accountTypeSelection">
+        <h2>Choose Your Account Type</h2>
+        
+        <div class="account-types">
+          <div class="account-type-card" onclick="selectAccountType('parent')">
+            <h3>I'm a Parent</h3>
+            <p>Looking for trusted babysitters for my children</p>
+            <ul>
+              <li>Browse verified sitters</li>
+              <li>Post job requests</li>
+              <li>Direct messaging</li>
+              <li>Pay small booking fee</li>
+            </ul>
+          </div>
+          
+          <div class="account-type-card" onclick="selectAccountType('sitter')">
+            <h3>I'm a Babysitter</h3>
+            <p>Want to offer babysitting services to local families</p>
+            <ul>
+              <li>Create detailed profile</li>
+              <li>Apply for jobs</li>
+              <li>Get paid directly</li>
+              <li>Build reputation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-card" id="signupForm" style="display: none;">
+        <h2 id="formTitle">Create Your Account</h2>
+        
+        <form id="registrationForm" class="auth-form">
+          <input type="hidden" id="accountType" name="accountType" value="">
+          
+          <!-- Basic Information -->
+          <div class="form-section">
+            <h3>Basic Information</h3>
+            
+            <div class="row">
+              <div class="field">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+              </div>
+              <div class="field">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+              </div>
+            </div>
+            
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+              <small>We'll send you a verification link</small>
+            </div>
+            
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required placeholder="07123 456789">
+              <small>For account verification and booking confirmations</small>
+            </div>
+            
+            <div class="field">
+              <label for="password">Create Password</label>
+              <input type="password" id="password" name="password" required placeholder="Min. 8 characters" minlength="8">
+              <small>At least 8 characters with mix of letters, numbers & symbols</small>
+            </div>
+            
+            <div class="field">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-enter password">
+            </div>
+          </div>
+          
+          <!-- Location Information -->
+          <div class="form-section">
+            <h3>Location</h3>
+            
+            <div class="row">
+              <div class="field">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" required placeholder="AL1 1AA" pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]? [0-9][A-Ba-z]{2}">
+                <small>Used to find local sitters/families</small>
+              </div>
+              <div class="field">
+                <label for="town">Town/City</label>
+                <input type="text" id="town" name="town" required placeholder="St Albans" list="towns">
+                <datalist id="towns">
+                  <option value="St Albans"></option>
+                  <option value="Watford"></option>
+                  <option value="Hertford"></option>
+                  <option value="Hemel Hempstead"></option>
+                  <option value="Stevenage"></option>
+                  <option value="Harpenden"></option>
+                  <option value="Welwyn Garden City"></option>
+                  <option value="Hitchin"></option>
+                  <option value="Letchworth"></option>
+                  <option value="Berkhamsted"></option>
+                </datalist>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parent-specific fields -->
+          <div class="form-section parent-fields" style="display: none;">
+            <h3>About Your Family</h3>
+            
+            <div class="field">
+              <label for="childrenCount">Number of Children</label>
+              <select id="childrenCount" name="childrenCount">
+                <option value="1">1 child</option>
+                <option value="2">2 children</option>
+                <option value="3">3 children</option>
+                <option value="4+">4 or more children</option>
+              </select>
+            </div>
+            
+            <div class="field">
+              <label for="childrenAges">Ages of Children</label>
+              <input type="text" id="childrenAges" name="childrenAges" placeholder="e.g. 3, 6, 8">
+              <small>Approximate ages to help match with suitable sitters</small>
+            </div>
+            
+            <div class="field">
+              <label for="specialNeeds">Special Requirements (Optional)</label>
+              <textarea id="specialNeeds" name="specialNeeds" rows="3" placeholder="Any special needs, allergies, or requirements we should know about"></textarea>
+            </div>
+          </div>
+
+          <!-- Sitter-specific fields -->
+          <div class="form-section sitter-fields" style="display: none;">
+            <h3>About Your Experience</h3>
+            
+            <div class="row">
+              <div class="field">
+                <label for="experience">Years of Childcare Experience</label>
+                <select id="experience" name="experience">
+                  <option value="new">New to childcare</option>
+                  <option value="1">Less than 1 year</option>
+                  <option value="1-2">1-2 years</option>
+                  <option value="3-5">3-5 years</option>
+                  <option value="5+">5+ years</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="ageGroups">Age Groups You're Comfortable With</label>
+                <select id="ageGroups" name="ageGroups" multiple>
+                  <option value="0-12months">Babies (0-12 months)</option>
+                  <option value="1-3">Toddlers (1-3 years)</option>
+                  <option value="4-7">Young children (4-7 years)</option>
+                  <option value="8-12">School age (8-12 years)</option>
+                  <option value="13+">Teenagers (13+ years)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="field">
+              <label for="hourlyRate">Preferred Hourly Rate (£)</label>
+              <input type="number" id="hourlyRate" name="hourlyRate" min="8" max="50" step="0.50" placeholder="15.00">
+              <small>You can adjust this later in your profile</small>
+            </div>
+            
+            <div class="field">
+              <label>Do you have any of the following? (Optional)</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="qualifications" value="dbs"> Enhanced DBS check</label>
+                <label><input type="checkbox" name="qualifications" value="firstaid"> First aid certification</label>
+                <label><input type="checkbox" name="qualifications" value="childcare"> Childcare qualification</label>
+                <label><input type="checkbox" name="qualifications" value="driving"> Full driving license</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terms and Privacy -->
+          <div class="form-section">
+            <h3>Terms & Privacy</h3>
+            
+            <div class="terms-acceptance">
+              <label>
+                <input type="checkbox" name="termsAccepted" required>
+                I agree to the <a href="/terms.html" target="_blank">Terms of Use</a> and understand my rights and responsibilities
+              </label>
+              
+              <label>
+                <input type="checkbox" name="privacyAccepted" required>
+                I agree to the <a href="/privacy.html" target="_blank">Privacy Policy</a> and consent to my data being processed as described
+              </label>
+              
+              <label class="sitter-terms" style="display: none;">
+                <input type="checkbox" name="independentConfirmed">
+                I confirm I am registering as an independent childcare provider, not as an employee
+              </label>
+              
+              <label>
+                <input type="checkbox" name="marketingConsent">
+                I'd like to receive helpful tips and updates via email (you can unsubscribe anytime)
+              </label>
+            </div>
+          </div>
+
+          <div class="auth-actions">
+            <button type="button" class="btn-ghost" onclick="goBackToAccountType()">← Back</button>
+            <button type="submit" class="btn-primary btn-large">Create Account</button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="auth-help">
+        <h3>Already have an account?</h3>
+        <a href="/login.html" class="btn-ghost full-width">Login Instead</a>
+        
+        <div style="margin-top: 20px;">
+          <h4>Questions?</h4>
+          <ul>
+            <li><a href="/how-it-works.html">How Sitter Squad works</a></li>
+            <li><a href="/pricing.html">Pricing information</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Sitter Squad • Trusted Childcare Platform</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+  <script>
+    function selectAccountType(type) {
+      document.getElementById('accountType').value = type;
+      document.getElementById('accountTypeSelection').style.display = 'none';
+      document.getElementById('signupForm').style.display = 'block';
+      
+      const formTitle = document.getElementById('formTitle');
+      const parentFields = document.querySelectorAll('.parent-fields');
+      const sitterFields = document.querySelectorAll('.sitter-fields');
+      const sitterTerms = document.querySelectorAll('.sitter-terms');
+      
+      if (type === 'parent') {
+        formTitle.textContent = 'Create Parent Account';
+        parentFields.forEach(field => field.style.display = 'block');
+        sitterFields.forEach(field => field.style.display = 'none');
+        sitterTerms.forEach(term => term.style.display = 'none');
+      } else {
+        formTitle.textContent = 'Create Sitter Account';
+        parentFields.forEach(field => field.style.display = 'none');
+        sitterFields.forEach(field => field.style.display = 'block');
+        sitterTerms.forEach(term => term.style.display = 'block');
+      }
+    }
+    
+    function goBackToAccountType() {
+      document.getElementById('accountTypeSelection').style.display = 'block';
+      document.getElementById('signupForm').style.display = 'none';
+    }
+    
+    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const password = formData.get('password');
+      const confirmPassword = formData.get('confirmPassword');
+      
+      if (password !== confirmPassword) {
+        alert('Passwords do not match. Please check and try again.');
+        return;
+      }
+      
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Creating account...';
+      submitBtn.disabled = true;
+      
+      try {
+        const response = await fetch('/.netlify/functions/auth', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            action: 'register',
+            ...Object.fromEntries(formData)
+          }),
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          alert('Account created successfully! Please check your email to verify your account.');
+          window.location.href = '/login.html';
+        } else {
+          alert(result.message || 'Registration failed. Please try again.');
+        }
+      } catch (error) {
+        console.error('Registration error:', error);
+        alert('Registration failed. Please try again.');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

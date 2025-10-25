@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Provider Listing — Childcare Match</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Childcare Match" class="banner-image">
+    </div>
+    <div class="wrap">
+      <h1><a href="/">Childcare Match</a></h1>
+      <p class="tagline">Add your provider listing</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="submit-card">
+      <h2>Provider Listing Details</h2>
+      <p>Tell families about your childcare services</p>
+      
+      <form id="providerForm" class="submit-form" netlify name="provider-listing">
+        <div class="grid-2">
+          <div class="field">
+            <label for="title">Business/Service Name <span class="req">*</span></label>
+            <input id="title" name="title" required placeholder="e.g., Sunshine Childminding" />
+          </div>
+          <div class="field">
+            <label for="categoryInput">Provider Type <span class="req">*</span></label>
+            <select id="categoryInput" name="category" required>
+              <option value="">Select…</option>
+              <option>Childcare Providers</option>
+              <option>Tutors</option>
+              <option>Nurseries & Preschools</option>
+              <option>Holiday & Out of School Clubs</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="subcategoryInput">Specialism</label>
+            <select id="subcategoryInput" name="subcategory">
+              <option value="">Select…</option>
+              <option>Childminder</option>
+              <option>Nanny</option>
+              <option>Babysitter</option>
+              <option>Au Pair</option>
+              <option>Nursery</option>
+              <option>Preschool</option>
+              <option>After School Club</option>
+              <option>Holiday Club</option>
+              <option>Tutor - Maths</option>
+              <option>Tutor - English</option>
+              <option>Tutor - Science</option>
+              <option>Tutor - Languages</option>
+              <option>Music Teacher</option>
+              <option>Dance Teacher</option>
+              <option>Sports Coach</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="townInput">Town <span class="req">*</span></label>
+            <input id="townInput" name="town" required placeholder="e.g., Harpenden" list="towns" />
+          </div>
+          <div class="field">
+            <label for="website">Website</label>
+            <input id="website" name="website" placeholder="https://…" />
+          </div>
+          <div class="field">
+            <label for="email">Contact Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" required placeholder="name@example.com" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" placeholder="+44…" />
+          </div>
+          <div class="field">
+            <label for="ages">Age Groups</label>
+            <input id="ages" name="ages" placeholder="e.g., 0-5 years, 6-11 years" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="about">About Your Service <span class="req">*</span></label>
+            <textarea id="about" name="about" rows="4" required placeholder="Describe your childcare service, experience, and what makes you special…"></textarea>
+          </div>
+          <div class="field grid-col-span-2">
+            <label>Qualifications & Verification</label>
+            <div class="badges">
+              <label><input type="checkbox" name="dbs"> DBS Checked</label>
+              <label><input type="checkbox" name="firstaid"> First Aid Certified</label>
+              <label><input type="checkbox" name="ofsted"> Ofsted Registered</label>
+              <label><input type="checkbox" name="sen"> SEN Experience</label>
+              <label><input type="checkbox" name="qualified"> Qualified Teacher</label>
+              <label><input type="checkbox" name="insurance"> Public Liability Insurance</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="rates">Rates</label>
+            <input id="rates" name="rates" placeholder="e.g., £12/hour, £40/day" />
+          </div>
+          <div class="field">
+            <label for="availability">Availability</label>
+            <input id="availability" name="availability" placeholder="e.g., Mon-Fri 7am-6pm" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="tags">Additional Services (comma-separated)</label>
+            <input id="tags" name="tags" placeholder="school pickup, cooking, overnight care, tutoring" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="featuredImageUrl">Photo URL (optional)</label>
+            <input id="featuredImageUrl" name="featuredImageUrl" placeholder="https://example.com/photo.jpg" />
+          </div>
+        </div>
+
+        <!-- Honeypot field to prevent spam -->
+        <p style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <datalist id="towns">
+          <option value="Abbots Langley"></option><option value="Ashwell"></option><option value="Baldock"></option><option value="Berkhamsted"></option><option value="Bishop's Stortford"></option><option value="Borehamwood"></option><option value="Broxbourne"></option><option value="Buntingford"></option><option value="Bushey"></option><option value="Cheshunt"></option><option value="Chorleywood"></option><option value="Croxley Green"></option><option value="Cuffley"></option><option value="Elstree"></option><option value="Essendon"></option><option value="Flamstead"></option><option value="Great Amwell"></option><option value="Great Offley"></option><option value="Harpenden"></option><option value="Hatfield"></option><option value="Hemel Hempstead"></option><option value="Hertford"></option><option value="Hitchin"></option><option value="Hoddesdon"></option><option value="Knebworth"></option><option value="Kimpton"></option><option value="Kings Langley"></option><option value="Letchworth Garden City"></option><option value="Little Hadham"></option><option value="London Colney"></option><option value="Maple Cross"></option><option value="Markyate"></option><option value="Much Hadham"></option><option value="Northwood (Herts)"></option><option value="Potters Bar"></option><option value="Radlett"></option><option value="Redbourn"></option><option value="Rickmansworth"></option><option value="Royston"></option><option value="Sandridge"></option><option value="Sawbridgeworth"></option><option value="Shenley"></option><option value="South Oxhey"></option><option value="St Albans"></option><option value="Stanstead Abbotts"></option><option value="Stevenage"></option><option value="Tewin"></option><option value="Tring"></option><option value="Ware"></option><option value="Waltham Cross"></option><option value="Watford"></option><option value="Watton-at-Stone"></option><option value="Welham Green"></option><option value="Welwyn"></option><option value="Welwyn Garden City"></option><option value="Wheathampstead"></option><option value="Goffs Oak"></option><option value="Brookmans Park"></option><option value="Bayford"></option><option value="Hunsdon"></option><option value="Puckeridge"></option><option value="Standon"></option><option value="Digswell"></option><option value="Codicote"></option><option value="Cranborne"></option><option value="Waltham Abbey (Herts)"></option><option value="Little Gaddesden"></option><option value="Napsbury"></option><option value="How Wood"></option><option value="Park Street"></option><option value="Bricket Wood"></option>
+        </datalist>
+
+        <div class="row buttons">
+          <button type="submit" class="btn-primary">Submit Provider Listing</button>
+          <span id="submitStatus" class="status"></span>
+        </div>
+      </form>
+
+      <div class="back-link">
+        <a href="/add-listing.html" class="btn-ghost">← Back to Categories</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Childcare Match • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    document.getElementById('providerForm').addEventListener('submit', function(e) {
+      const status = document.getElementById('submitStatus');
+      status.textContent = 'Submitting...';
+      status.style.color = '#5b7486';
+      
+      // Let the form submit naturally to Netlify Forms
+      // The status will be handled by Netlify's success/error pages
+    });
+  </script>
+</body>
+</html>

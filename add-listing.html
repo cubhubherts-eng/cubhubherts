@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Your Listing — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+      <div class="banner-text">
+        <h1><a href="/" style="color:white;text-decoration:none">Cub Hub Herts</a></h1>
+        <p class="tagline">Add your listing — choose your category</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="category-selection-card">
+      <div class="category-selection-center">
+        <h2>What type of listing would you like to add?</h2>
+        <p>Choose the category that best describes your service</p>
+        
+        <div class="category-buttons">
+          <a href="/add-provider.html" class="category-btn">
+            <div class="category-btn-content">
+              <h3>Add a Provider Listing</h3>
+              <p>Childcare providers, tutors, nurseries, and other services</p>
+            </div>
+          </a>
+          
+          <a href="/add-job.html" class="category-btn">
+            <div class="category-btn-content">
+              <h3>Add a Job Listing</h3>
+              <p>Childcare positions, teaching roles, and employment opportunities</p>
+            </div>
+          </a>
+          
+          <a href="/add-event.html" class="category-btn">
+            <div class="category-btn-content">
+              <h3>Add an Event Listing</h3>
+              <p>Activities, workshops, classes, and community events for families</p>
+            </div>
+          </a>
+          
+          <a href="/add-agency.html" class="category-btn">
+            <div class="category-btn-content">
+              <h3>Add an Agency Listing</h3>
+              <p>Nanny agencies, babysitting services, and recruitment agencies</p>
+            </div>
+          </a>
+          
+          <a href="/groups-classes.html" class="category-btn">
+            <div class="category-btn-content">
+              <h3>Add Groups & Classes</h3>
+              <p>Children's activities, classes, workshops, and group sessions</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="back-link">
+          <a href="/" class="btn-ghost">← Back to Search</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

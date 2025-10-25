@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Event Listing — Cub Hub Herts</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner">
+      <img src="/cubhubnew.png" alt="Cub Hub Herts" class="banner-image">
+    </div>
+    <div class="wrap">
+      <h1><a href="/">Cub Hub Herts</a></h1>
+      <p class="tagline">Add your family event</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="submit-card">
+      <h2>Event Listing Details</h2>
+      <p>Share activities and events with local families</p>
+      
+      <form id="eventForm" class="submit-form" netlify name="event-listing">
+        <div class="grid-2">
+          <div class="field">
+            <label for="title">Event Title <span class="req">*</span></label>
+            <input id="title" name="title" required placeholder="e.g., Toddler Music Class" />
+          </div>
+          <div class="field">
+            <label for="categoryInput">Event Type <span class="req">*</span></label>
+            <select id="categoryInput" name="category" required>
+              <option value="">Select…</option>
+              <option>Community event</option>
+              <option>Pre-loved sale</option>
+              <option>Seasonal event</option>
+              <option>Fete</option>
+              <option>Classes & Workshops</option>
+              <option>School & Nursery open days</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ageRange">Age Range <span class="req">*</span></label>
+            <select id="ageRange" name="ageRange" required>
+              <option value="">Select…</option>
+              <option>0-2 years</option>
+              <option>2-5 years</option>
+              <option>5-8 years</option>
+              <option>8-12 years</option>
+              <option>12+ years</option>
+              <option>All ages</option>
+              <option>Adults & Children</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="townInput">Location <span class="req">*</span></label>
+            <input id="townInput" name="town" required placeholder="e.g., Harpenden" list="towns" />
+          </div>
+          <div class="field">
+            <label for="venue">Venue Name</label>
+            <input id="venue" name="venue" placeholder="e.g., Community Centre, Park" />
+          </div>
+          <div class="field">
+            <label for="address">Full Address</label>
+            <input id="address" name="address" placeholder="Complete address including postcode" />
+          </div>
+          <div class="field">
+            <label for="eventDate">Event Date <span class="req">*</span></label>
+            <input id="eventDate" name="eventDate" type="date" required />
+          </div>
+          <div class="field">
+            <label for="eventTime">Event Time <span class="req">*</span></label>
+            <input id="eventTime" name="eventTime" required placeholder="e.g., 10:00 AM - 12:00 PM" />
+          </div>
+          <div class="field">
+            <label for="cost">Cost <span class="req">*</span></label>
+            <input id="cost" name="cost" required placeholder="e.g., £5 per child, Free" />
+          </div>
+          <div class="field">
+            <label for="duration">Duration</label>
+            <input id="duration" name="duration" placeholder="e.g., 1 hour, 2 hours" />
+          </div>
+          <div class="field">
+            <label for="maxParticipants">Max Participants</label>
+            <input id="maxParticipants" name="maxParticipants" type="number" placeholder="e.g., 20" />
+          </div>
+          <div class="field">
+            <label for="recurring">Recurring Event?</label>
+            <select id="recurring" name="recurring">
+              <option value="no">One-time event</option>
+              <option value="weekly">Weekly</option>
+              <option value="fortnightly">Fortnightly</option>
+              <option value="monthly">Monthly</option>
+              <option value="termtime">Term time only</option>
+            </select>
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="about">Event Description <span class="req">*</span></label>
+            <textarea id="about" name="about" rows="4" required placeholder="Describe the event, what's included, and what families can expect…"></textarea>
+          </div>
+          <div class="field grid-col-span-2">
+            <label>What's Included/Features</label>
+            <div class="badges">
+              <label><input type="checkbox" name="refreshments"> Refreshments Included</label>
+              <label><input type="checkbox" name="materials"> Materials Provided</label>
+              <label><input type="checkbox" name="parking"> Parking Available</label>
+              <label><input type="checkbox" name="buggyFriendly"> Buggy Friendly</label>
+              <label><input type="checkbox" name="indoor"> Indoor Venue</label>
+              <label><input type="checkbox" name="outdoor"> Outdoor Venue</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="organiser">Organiser Name <span class="req">*</span></label>
+            <input id="organiser" name="organiser" required placeholder="Your name or organisation" />
+          </div>
+          <div class="field">
+            <label for="email">Contact Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" required placeholder="name@example.com" />
+          </div>
+          <div class="field">
+            <label for="phone">Contact Phone</label>
+            <input id="phone" name="phone" placeholder="+44…" />
+          </div>
+          <div class="field">
+            <label for="website">Website/Booking Link</label>
+            <input id="website" name="website" placeholder="https://…" />
+          </div>
+          <div class="field">
+            <label for="bookingRequired">Booking Required?</label>
+            <select id="bookingRequired" name="bookingRequired">
+              <option value="no">No - just turn up</option>
+              <option value="yes">Yes - advance booking required</option>
+              <option value="recommended">Booking recommended</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="accessibility">Accessibility</label>
+            <input id="accessibility" name="accessibility" placeholder="e.g., Wheelchair accessible, disabled parking" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="whatToBring">What to Bring</label>
+            <input id="whatToBring" name="whatToBring" placeholder="e.g., comfortable clothes, water bottle, snacks" />
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="additionalInfo">Additional Information</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any other important details parents should know…"></textarea>
+          </div>
+          <div class="field grid-col-span-2">
+            <label for="featuredImageUrl">Event Photo URL (optional)</label>
+            <input id="featuredImageUrl" name="featuredImageUrl" placeholder="https://example.com/photo.jpg" />
+          </div>
+        </div>
+
+        <!-- Honeypot field to prevent spam -->
+        <p style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <datalist id="towns">
+          <option value="Abbots Langley"></option><option value="Ashwell"></option><option value="Baldock"></option><option value="Berkhamsted"></option><option value="Bishop's Stortford"></option><option value="Borehamwood"></option><option value="Broxbourne"></option><option value="Buntingford"></option><option value="Bushey"></option><option value="Cheshunt"></option><option value="Chorleywood"></option><option value="Croxley Green"></option><option value="Cuffley"></option><option value="Elstree"></option><option value="Essendon"></option><option value="Flamstead"></option><option value="Great Amwell"></option><option value="Great Offley"></option><option value="Harpenden"></option><option value="Hatfield"></option><option value="Hemel Hempstead"></option><option value="Hertford"></option><option value="Hitchin"></option><option value="Hoddesdon"></option><option value="Knebworth"></option><option value="Kimpton"></option><option value="Kings Langley"></option><option value="Letchworth Garden City"></option><option value="Little Hadham"></option><option value="London Colney"></option><option value="Maple Cross"></option><option value="Markyate"></option><option value="Much Hadham"></option><option value="Northwood (Herts)"></option><option value="Potters Bar"></option><option value="Radlett"></option><option value="Redbourn"></option><option value="Rickmansworth"></option><option value="Royston"></option><option value="Sandridge"></option><option value="Sawbridgeworth"></option><option value="Shenley"></option><option value="South Oxhey"></option><option value="St Albans"></option><option value="Stanstead Abbotts"></option><option value="Stevenage"></option><option value="Tewin"></option><option value="Tring"></option><option value="Ware"></option><option value="Waltham Cross"></option><option value="Watford"></option><option value="Watton-at-Stone"></option><option value="Welham Green"></option><option value="Welwyn"></option><option value="Welwyn Garden City"></option><option value="Wheathampstead"></option><option value="Goffs Oak"></option><option value="Brookmans Park"></option><option value="Bayford"></option><option value="Hunsdon"></option><option value="Puckeridge"></option><option value="Standon"></option><option value="Digswell"></option><option value="Codicote"></option><option value="Cranborne"></option><option value="Waltham Abbey (Herts)"></option><option value="Little Gaddesden"></option><option value="Napsbury"></option><option value="How Wood"></option><option value="Park Street"></option><option value="Bricket Wood"></option>
+        </datalist>
+
+        <div class="row buttons">
+          <button type="submit" class="btn-primary">Submit Event Listing</button>
+          <span id="submitStatus" class="status"></span>
+        </div>
+      </form>
+
+      <div class="back-link">
+        <a href="/add-listing.html" class="btn-ghost">← Back to Categories</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Cub Hub Herts • Built for Netlify (static + functions)</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    document.getElementById('eventForm').addEventListener('submit', function(e) {
+      const status = document.getElementById('submitStatus');
+      status.textContent = 'Submitting...';
+      status.style.color = '#5b7486';
+      
+      // Let the form submit naturally to Netlify Forms
+      // The status will be handled by Netlify's success/error pages
+    });
+  </script>
+</body>
+</html>

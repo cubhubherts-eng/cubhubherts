@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Post a Job — BabySitterMatch</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="hero-banner small">
+      <div class="banner-text">
+        <h1>Post a Job</h1>
+        <p class="tagline">Tell us what you need and receive applications from verified sitters</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <div class="wrap">
+        <a href="/" class="nav-btn">Home</a>
+        <a href="/browse-sitters.html" class="nav-btn">Browse Sitters</a>
+        <a href="/post-job.html" class="nav-btn active">Post a Job</a>
+        <a href="/how-it-works.html" class="nav-btn">How It Works</a>
+        <a href="/safety.html" class="nav-btn">Safety & Trust</a>
+        <a href="/pricing.html" class="nav-btn">Pricing</a>
+        <a href="/contact.html" class="nav-btn">Contact</a>
+        <div class="nav-auth">
+          <a href="/login.html" class="nav-btn" id="loginBtn">Login</a>
+          <a href="/signup.html" class="nav-btn btn-primary" id="signupBtn">Sign Up</a>
+          <div class="user-menu" id="userMenu" style="display: none;">
+            <span id="userName"></span>
+            <a href="/dashboard.html" class="nav-btn">Dashboard</a>
+            <a href="#" class="nav-btn" id="logoutBtn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <form id="postJobForm" class="job-form">
+      <section class="form-section">
+        <h2>Job Details</h2>
+        
+        <div class="field">
+          <label for="jobTitle">Job Title</label>
+          <input type="text" id="jobTitle" name="jobTitle" required placeholder="e.g. Evening babysitter needed for 2 children">
+          <small>Give your job a clear, descriptive title</small>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="startDate">Date Needed</label>
+            <input type="date" id="startDate" name="startDate" required>
+          </div>
+          <div class="field">
+            <label for="startTime">Start Time</label>
+            <input type="time" id="startTime" name="startTime" required>
+          </div>
+          <div class="field">
+            <label for="endTime">End Time</label>
+            <input type="time" id="endTime" name="endTime" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="recurring">Is this a recurring job?</label>
+          <select id="recurring" name="recurring">
+            <option value="once">One-time only</option>
+            <option value="weekly">Weekly</option>
+            <option value="fortnightly">Fortnightly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required placeholder="Postcode or area" list="towns">
+            <datalist id="towns">
+              <option value="St Albans"></option>
+              <option value="Watford"></option>
+              <option value="Hertford"></option>
+              <option value="Hemel Hempstead"></option>
+              <option value="Stevenage"></option>
+            </datalist>
+            <small>Your exact address will only be shared after booking confirmation</small>
+          </div>
+          <div class="field">
+            <label for="rateOffered">Rate Offered (per hour)</label>
+            <div class="input-prefix">
+              <span>£</span>
+              <input type="number" id="rateOffered" name="rateOffered" min="8" max="50" step="0.50" placeholder="15.00">
+            </div>
+            <small>Optional - helps attract the right sitters</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>About Your Children</h2>
+        
+        <div id="childrenContainer">
+          <div class="child-entry">
+            <div class="row">
+              <div class="field">
+                <label for="childAge1">Age</label>
+                <select id="childAge1" name="childAge1" required>
+                  <option value="">Select age</option>
+                  <option value="0-6months">0-6 months</option>
+                  <option value="6-12months">6-12 months</option>
+                  <option value="1">1 year</option>
+                  <option value="2">2 years</option>
+                  <option value="3">3 years</option>
+                  <option value="4">4 years</option>
+                  <option value="5">5 years</option>
+                  <option value="6">6 years</option>
+                  <option value="7">7 years</option>
+                  <option value="8">8 years</option>
+                  <option value="9">9 years</option>
+                  <option value="10">10 years</option>
+                  <option value="11">11 years</option>
+                  <option value="12">12 years</option>
+                  <option value="13+">13+ years</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="childNotes1">Special notes (optional)</label>
+                <input type="text" id="childNotes1" name="childNotes1" placeholder="Any allergies, preferences, or special needs">
+              </div>
+              <div class="field">
+                <button type="button" class="btn-ghost btn-small" onclick="removeChild(this)">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button type="button" class="btn-ghost" onclick="addChild()">+ Add Another Child</button>
+      </section>
+
+      <section class="form-section">
+        <h2>Requirements & Duties</h2>
+        
+        <div class="field">
+          <label for="duties">What will the babysitter need to do?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="duties" value="general"> General childcare supervision</label>
+            <label><input type="checkbox" name="duties" value="bedtime"> Bedtime routines</label>
+            <label><input type="checkbox" name="duties" value="meals"> Prepare light meals/snacks</label>
+            <label><input type="checkbox" name="duties" value="homework"> Help with homework</label>
+            <label><input type="checkbox" name="duties" value="activities"> Organize activities/play</label>
+            <label><input type="checkbox" name="duties" value="transport"> School pickup/dropoff</label>
+            <label><input type="checkbox" name="duties" value="housework"> Light housework</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="requirements">Babysitter requirements</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="requirements" value="dbs" checked> DBS check required</label>
+            <label><input type="checkbox" name="requirements" value="firstaid"> First aid certification</label>
+            <label><input type="checkbox" name="requirements" value="references"> Verified references</label>
+            <label><input type="checkbox" name="requirements" value="experience"> Minimum 1 year experience</label>
+            <label><input type="checkbox" name="requirements" value="newborn"> Newborn experience (if applicable)</label>
+            <label><input type="checkbox" name="requirements" value="sen"> SEN experience</label>
+            <label><input type="checkbox" name="requirements" value="driving"> Must have car/driving license</label>
+            <label><input type="checkbox" name="requirements" value="nonsmoker"> Non-smoker</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="additionalInfo">Additional Information</label>
+          <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Any other information about your family, home, pets, parking, special requirements, etc."></textarea>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>Contact Preferences</h2>
+        
+        <div class="field">
+          <label for="urgency">How urgent is this job?</label>
+          <select id="urgency" name="urgency" required>
+            <option value="flexible">Flexible timing</option>
+            <option value="week">Within a week</option>
+            <option value="days">Within 2-3 days</option>
+            <option value="urgent">Urgent (within 24 hours)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="contactMethod">Preferred contact method</label>
+          <div class="radio-group">
+            <label><input type="radio" name="contactMethod" value="platform" checked> Through platform messaging</label>
+            <label><input type="radio" name="contactMethod" value="email"> Direct email</label>
+            <label><input type="radio" name="contactMethod" value="phone"> Phone call</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>
+            <input type="checkbox" name="autoInvite" id="autoInvite">
+            Automatically send to suitable sitters in my area
+          </label>
+          <small>We'll match your job to sitters based on location, availability, and requirements</small>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>Review & Post</h2>
+        
+        <div class="pricing-info">
+          <h3>Platform Fee</h3>
+          <p>When a sitter accepts your job, you'll pay a £5 booking fee to secure the booking. You pay the sitter directly for their time at the agreed hourly rate.</p>
+          <div class="fee-breakdown">
+            <div>Booking fee: <strong>£5.00</strong></div>
+            <div>Sitter payment: <strong>Direct to sitter</strong></div>
+          </div>
+        </div>
+
+        <div class="terms-acceptance">
+          <label>
+            <input type="checkbox" name="termsAccepted" required>
+            I agree to the <a href="/terms.html" target="_blank">Terms of Use</a> and <a href="/booking-terms.html" target="_blank">Booking Terms</a>
+          </label>
+          <label>
+            <input type="checkbox" name="policyAccepted" required>
+            I understand the <a href="/cancellation-policy.html" target="_blank">Cancellation Policy</a>
+          </label>
+          <label>
+            <input type="checkbox" name="safetyAccepted" required>
+            I have read the <a href="/safety.html" target="_blank">Safeguarding Guidelines</a>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-ghost">Save as Draft</button>
+          <button type="submit" class="btn-primary btn-large">Post Job</button>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> BabySitterMatch • Trusted Childcare Platform</p>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/safety.html">Safety</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js" type="module"></script>
+  <script>
+    let childCount = 1;
+    
+    function addChild() {
+      childCount++;
+      const container = document.getElementById('childrenContainer');
+      const childEntry = document.createElement('div');
+      childEntry.className = 'child-entry';
+      childEntry.innerHTML = `
+        <div class="row">
+          <div class="field">
+            <label for="childAge${childCount}">Age</label>
+            <select id="childAge${childCount}" name="childAge${childCount}" required>
+              <option value="">Select age</option>
+              <option value="0-6months">0-6 months</option>
+              <option value="6-12months">6-12 months</option>
+              <option value="1">1 year</option>
+              <option value="2">2 years</option>
+              <option value="3">3 years</option>
+              <option value="4">4 years</option>
+              <option value="5">5 years</option>
+              <option value="6">6 years</option>
+              <option value="7">7 years</option>
+              <option value="8">8 years</option>
+              <option value="9">9 years</option>
+              <option value="10">10 years</option>
+              <option value="11">11 years</option>
+              <option value="12">12 years</option>
+              <option value="13+">13+ years</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="childNotes${childCount}">Special notes (optional)</label>
+            <input type="text" id="childNotes${childCount}" name="childNotes${childCount}" placeholder="Any allergies, preferences, or special needs">
+          </div>
+          <div class="field">
+            <button type="button" class="btn-ghost btn-small" onclick="removeChild(this)">Remove</button>
+          </div>
+        </div>
+      `;
+      container.appendChild(childEntry);
+    }
+    
+    function removeChild(button) {
+      button.closest('.child-entry').remove();
+    }
+  </script>
+</body>
+</html>
